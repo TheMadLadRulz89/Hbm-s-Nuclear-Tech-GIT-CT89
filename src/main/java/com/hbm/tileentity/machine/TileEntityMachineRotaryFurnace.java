@@ -62,7 +62,6 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 	
 	protected ModulePortManFluidAdaptive moduleSteamPorts;
 	protected ModulePortManFluidAdaptive moduleFluidPorts;
-	protected ModulePortManFluidAdaptive moduleSmokePorts;
 
 	/**Given this has no heat, the heat mod instead affects the progress per fuel **/
 	public static ModuleBurnTime burnModule = new ModuleBurnTime()
@@ -84,7 +83,6 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 
 		moduleSteamPorts = new ModulePortManFluidAdaptive(this).setInputTanks(tanks[1]).setOutputTanks(tanks[2]);
 		moduleFluidPorts = new ModulePortManFluidAdaptive(this).setInputTanks(tanks[0]);
-		moduleSmokePorts = new ModulePortManFluidAdaptive(this).setOutputTanks(smoke, smoke_leaded, smoke_poison);
 	}
 
 	@Override
@@ -128,8 +126,10 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 	
 	public PortDef[] getSmokePorts() {
 		if(smokePortDef == null) {
+			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+			ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 			smokePortDef = new PortDef[] {
-					PortDef.make(xCoord, yCoord + 4, zCoord, Library.POS_Y),
+					PortDef.make(xCoord + rot.offsetX, yCoord + 4, zCoord + rot.offsetZ, Library.POS_Y),
 			};
 		}
 		return smokePortDef;
