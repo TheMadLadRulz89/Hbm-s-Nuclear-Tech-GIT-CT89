@@ -198,7 +198,7 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 		INTELLIGENCE(	"Intelligence",						"Intelligence",		null,														"It takes the smartest individuals to realize$there's always more to learn.",						false,	ScrapType.BRIDGE_BUS),
 		AGILITY(		"Agility",							"Agility",			null,														"Never be afraid to dodge the sensitive issues.",													false,	ScrapType.BRIDGE_CHIPSET),
 		LUCK(			"Luck",								"Luck",				null,														"There's only one way to give 110%.",																false,	ScrapType.BRIDGE_CMOS),
-		BOB(			"Robert \"The Bobcat\" Katzinsky",	"HbMinecraft",		"Hbm's Nuclear Tech Mod",									"I know where you live, " + System.getProperty("user.name"),									false,	ScrapType.CPU_SOCKET),
+		BOB(			"Robert \"The Bobcat\" Katzinsky",	"HbMinecraft",		"Hbm's Nuclear Tech Mod",									"I know where you live, " + System.getProperty("user.name"),									    false,	ScrapType.CPU_SOCKET),
 		FRIZZLE(		"Frooz",							"Frooz",			"Weapon models",											"BLOOD IS FUEL",																					true,	ScrapType.CPU_CLOCK),
 		PU238(			"Pu-238",							"Pu-238",			"Improved Tom impact mechanics",							null,																								false,	ScrapType.CPU_REGISTER),
 		VT(				"VT-6/24",							"VT-6/24",			"Balefire warhead model and general texturework",			"You cannot unfuck a horse.",																		true,	ScrapType.CPU_EXT),
@@ -214,8 +214,10 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 		MICROWAVE(		"Microwave",						"Microwave",		"OC Compatibility and massive RBMK/packet optimizations",	"they call me the food heater$john optimization",													true,	ScrapType.BOARD_CONVERTER),
 		PEEP(			"Peep",								"LePeeperSauvage",	"Coilgun, Leadburster and Congo Lake models, BDCL QC",		"Fluffy ears can't hide in ash, nor snow.",															true,	ScrapType.CARD_BOARD),
 		MELLOW(			"MELLOWARPEGGIATION",				"Mellow",			"NBT Structures, industrial lighting, animation tools",		"Make something cool now, ask for permission later.",												true,	ScrapType.CARD_PROCESSOR),
-		ABEL(			"Abel1502", 						"Abel1502", 		"Abilities GUI, optimizations and many QoL improvements", 	"NANTO SUBARASHII",																				true,	ScrapType.CPU_REGISTER);
-
+		ABEL(			"Abel1502", 						"Abel1502", 		"Abilities GUI, optimizations and many QoL improvements", 	"NANTO SUBARASHII",																				    true,	ScrapType.CPU_REGISTER),
+		MADLAD(         "CreeperTyp89",                     "CreeperTyp89",     "NBT Structures",                                           "I am a Professional Killjoy Mate",                                                                 true,   ScrapType.CARD_PROCESSOR),
+		CGUY(           "CreeperGuy89",                     "CreeperGuy89",     null,                                                       "wtf i am even doing here?",                                                                        true,   ScrapType.CARD_BOARD);
+				
 		public String name;			//the title of the tooltip
 		public String label;		//the name engraved in the socket
 		public String contribution;	//what contributions this person has made, if applicable
