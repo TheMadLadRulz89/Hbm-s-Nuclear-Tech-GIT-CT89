@@ -7,6 +7,8 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -38,6 +40,8 @@ public class QMAWLoader implements IResourceManagerReloadListener {
 	public static final JsonParser parser = new JsonParser();
 	public static HashMap<String, QuickManualAndWiki> qmaw = new HashMap();
 	public static HashMap<ComparableStack, QuickManualAndWiki> triggers = new HashMap();
+	/// Cache of indexable QMAW keys, reloadable
+	public static final Set<String> QMAW_KEYS = new HashSet<>(300);
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resMan) {
@@ -67,6 +71,8 @@ public class QMAWLoader implements IResourceManagerReloadListener {
 		qmaw.clear();
 		triggers.clear();
 		agonyEngine();
+		QMAW_KEYS.clear();
+		QMAW_KEYS.addAll(qmaw.entrySet().stream().filter(e -> !e.getValue().noIndex).map(Entry::getKey).collect(Collectors.toSet()));
 	}
 
 	/** "digital equivalent to holywater" yielded few results on google, if only i had the answer i would drown this entire class in it <br><br>
